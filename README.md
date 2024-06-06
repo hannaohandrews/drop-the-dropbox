@@ -1,5 +1,8 @@
 ## Hackathon Project: Drop the Box!
 
+Our Google Drive Doc:
+https://docs.google.com/document/d/1wUzECDMzIXkO9DwcdSAgzb-pi0q1EevR0jOI4QxL_1c/edit
+
 ## Getting Started
 
 Firstly, install all the dependancies.
