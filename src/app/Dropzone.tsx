@@ -2,6 +2,7 @@
 import React, { useCallback, useState } from "react";
 import { useDropzone } from "react-dropzone";
 import { ArrowUpTrayIcon, XMarkIcon } from "@heroicons/react/24/solid";
+import Image from "next/image";
 import "./index.css";
 
 interface DropzoneProps {
@@ -66,23 +67,25 @@ const Dropzone: React.FC<DropzoneProps> = ({ className }) => {
           >
             Remove all files
           </button>
-          <button type="submit" className="button button-upload">
+          <button
+            title="upload to s3"
+            type="submit"
+            className="button button-upload"
+          >
             Upload to S3
           </button>
         </div>
 
         {/* Accepted files */}
         <div>
-          <h3 className="title text-lg font-semibold text-neutral-600 mt-10 border-b pb-3">
-            Accepted Files
-          </h3>
+          <h3 className="title">Accepted Files</h3>
           <ul className="mt-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-10">
             {files.map((file) => (
               <li
                 key={file.name}
                 className="relative h-32 rounded-md shadow-lg"
               >
-                <img
+                <Image
                   src={file.preview}
                   alt={file.name}
                   width={100}
@@ -94,6 +97,7 @@ const Dropzone: React.FC<DropzoneProps> = ({ className }) => {
                 />
 
                 <button
+                  title="Remove file"
                   type="button"
                   className="w-7 h-7 border border-secondary-400 bg-secondary-400 rounded-full flex justify-center items-center absolute -top-3 -right-3 hover:bg-white transition-colors"
                   onClick={() => removeFile(file.name)}
@@ -109,9 +113,7 @@ const Dropzone: React.FC<DropzoneProps> = ({ className }) => {
         </div>
 
         {/* Rejected Files */}
-        <h3 className="title text-lg font-semibold text-neutral-600 mt-24 border-b pb-3">
-          Rejected Files
-        </h3>
+        <h3 className="title ">Rejected Files</h3>
         {/* <ul className="mt-6 flex flex-col">
           {rejected.map(({ file, errors }) => (
             <li key={file.name} className="flex items-start justify-between">
