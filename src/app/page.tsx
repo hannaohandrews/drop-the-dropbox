@@ -1,9 +1,11 @@
+import React from "react";
 import Dropzone from "./Dropzone";
+import Title from "./Title";
 
 export default function Home() {
   return (
     <div>
-      <h1>DROP THE DROPBOX</h1>
+      <Title text="Project: DroppedBox" />
       <Dropzone />
     </div>
   );
